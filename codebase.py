@@ -200,9 +200,9 @@ def create_metrics_file(filename, predicted_labels, true_labels):
 
     spaceChar = ' '
 
-    output.write(str(accuracy) + "\n")
-    output.write(str(y_precision) + spaceChar * 2 + str(n_precision) + "\n")
-    output.write(str(y_recall) + spaceChar * 2 + str(n_recall) + "\n")
-    output.write(str(y_f1Measure) + spaceChar * 2 + str(n_f1Measure) + "\n")
+    output.write(str(round(accuracy, 4)) + "\n")
+    output.write(str(round(y_precision, 4)) + spaceChar * 2 + str(round(n_precision, 4)) + "\n")
+    output.write(str(round(y_recall, 4)) + spaceChar * 2 + str(round(n_recall, 4)) + "\n")
+    output.write(str(round(y_f1Measure, 4)) + spaceChar * 2 + str(round(n_f1Measure, 4)) + "\n")
 
 # TODO output file for metrics
