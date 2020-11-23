@@ -10,7 +10,7 @@ def load_training_data(filename='covid_training.tsv'):
     feature_no = {}
     labels = []
     
-    with open('A3_Dataset/' + filename) as train_data_file:
+    with open('A3_Dataset/' + filename, encoding="utf8") as train_data_file:
         file_rows = csv.reader(train_data_file, delimiter='\t')
         next(file_rows)
         
@@ -82,7 +82,7 @@ def load_test_data(filename='covid_test_public.tsv'):
     labels = []
     tweets = []
     
-    with open('A3_Dataset/' + filename) as test_data_file:
+    with open('A3_Dataset/' + filename, encoding="utf8") as test_data_file:
         file_rows = csv.reader(test_data_file, delimiter='\t')
         
         for row in file_rows:
