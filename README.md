@@ -7,9 +7,7 @@ How to run the program:
 
 2. Run all cells in the file then consult the A3_Output file to view the evaluation and trace file.
 
-3. (Optional) If you want to modify the smoothing applied to the filtered vocabulary, go to the codebase.py file, find the predict function and
-enter the smoothing value of your choice. Run the codebase, go back to the NB-BOW-OV file add the smoothing value as a prefix to the file name
-and re-run all the code cells.
+3. (Optional) If you want to modify the smoothing applied to the original or filtered vocabulary, add the smoothing value as the last argument of the function *predict* where it is called in the Jupyter notebook files. The default smoothing value is **0.01**.
 
 Base code by Ernest
 

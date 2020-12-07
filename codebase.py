@@ -73,7 +73,7 @@ def prior(label_str, labels):
 
 
 # Computes (smoothed) conditional probability from a passed word and passed yes/no feature list
-def conditional(word, feature_yn, vocab_size, smoothing=0.01):
+def conditional(word, feature_yn, vocab_size, smoothing):
     if (word in feature_yn.keys()):
         return (feature_yn[word] + smoothing) / (sum(feature_yn.values()) + smoothing * vocab_size)
     else:
@@ -98,7 +98,7 @@ def load_test_data(filename='covid_test_public.tsv'):
 
 
 # Predicts the labels of a passed set of tokenized words. Return the predicted labels. Return the predicted labels of each Tweets in the gieven set and their best score
-def predict(tweets, training_labels, feature_yes, feature_no, vocab_size):
+def predict(tweets, training_labels, feature_yes, feature_no, vocab_size, smoothing=0.01):
     predicted_labels = []
     best_scores = []
 
@@ -113,7 +113,7 @@ def predict(tweets, training_labels, feature_yes, feature_no, vocab_size):
             scores[j] += math.log10(priors[j])
             for word in tweets[i]:
                 # Add conditionals
-                scores[j] += math.log10(conditional(word, feature_yn[j], vocab_size))
+                scores[j] += math.log10(conditional(word, feature_yn[j], vocab_size, smoothing))
 
         # Keep track of minimum scores and predicted labels
         max_score = max(scores)
